@@ -1,8 +1,6 @@
-import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:wat_i_want/models/item.dart';
+import 'package:wat_i_want/services/item/ItemAPI.dart';
 
 class ItemListState extends State<ItemListWidget> {
 
@@ -14,7 +12,7 @@ class ItemListState extends State<ItemListWidget> {
         title: Text('Les envies'),
       ),
       body: FutureBuilder<List<Item>>(
-        future: getListFromService(),
+        future: ItemAPI().getAll(),
         builder: (context, snapshot) {
           if(snapshot.hasError) print(snapshot.error);
           return snapshot.hasData ? ListViewItems(items: snapshot.data,) : Center(child: CircularProgressIndicator());
@@ -24,17 +22,7 @@ class ItemListState extends State<ItemListWidget> {
   }
 }
 
-  Future<List<Item>> getListFromService() async {
-    final response =  await http.get("http://archlinux:9012/v1/item");
-    return parseItems(response.body);
-  }
 
-
-  List<Item> parseItems(String responseBody){
-    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-
-    return parsed.map<Item>((json) => Item.fromJson(json)).toList();
-  }
 
 class ItemListWidget extends StatefulWidget {
   @override

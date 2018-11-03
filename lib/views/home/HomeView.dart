@@ -20,14 +20,14 @@ class HomeScreenState extends State<HomeView> {
         children: <Widget>[
           GestureDetector(
               child:       Tile(
-                title: Text("Mes envies", style: HomeStyle().TileTextStyle),
+                title: Text("Mes envies", style: HomeStyle().tileTextStyle),
                 icon: Icon(Icons.list, size: 40.0, color: Colors.blue),
               ),
               onTap:(){ Navigator.push(context,MaterialPageRoute(builder: (context) => ItemListWidget()));
               }
           ),
           Tile(
-            title: Text("Préparer un cadeau", style: HomeStyle().TileTextStyle),
+            title: Text("Préparer un cadeau", style: HomeStyle().tileTextStyle),
             icon: Icon(Icons.card_giftcard, size: 40.0, color: Colors.amber),
           )
         ],
