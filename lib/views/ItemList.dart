@@ -6,9 +6,6 @@ import 'package:wat_i_want/models/item.dart';
 
 class ItemListState extends State<ItemListWidget> {
 
-  String _suggestion = "";
-  final _biggerFont = const TextStyle(fontSize: 18.0);
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

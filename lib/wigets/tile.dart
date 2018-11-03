@@ -16,16 +16,17 @@ class Tile extends StatelessWidget {
             height: 110.0 ,
             width: size.width / 2,
             padding: const EdgeInsets.only(top: 2.0),
-            child: Card(
-              child: Container(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: <Widget>[this.title, this.icon],
+            child:  Container(
+              child: Card(
+                child: Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: <Widget>[this.title, this.icon],
+                  ),
                 ),
               ),
             )
         ),
-      onTap: ,
     );
   }
 }

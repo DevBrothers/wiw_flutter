@@ -1,5 +1,3 @@
-import 'package:http/http.dart';
-
 class Item {
   String uuid;
   String name;
